@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/thiagoc7/met_deploy#readme",
   "dependencies": {
+    "classnames": "^2.2.3",
     "react": "^0.14.4",
     "react-dom": "^0.14.4",
-    "react-mixin": "^2.0.2"
+    "react-mixin": "^2.0.2",
+    "react-redux": "^4.0.6",
+    "redux": "^3.0.5",
+    "redux-thunk": "^1.0.3"
   }
 }

@@ -1,8 +1,16 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React, { PropTypes } from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-import {App} from './imports/app.jsx';
+import store from './imports/store'
+
+import Root from './imports/Root.jsx'
 
 Meteor.startup(function () {
-  render(<App />, document.getElementById("root"));
+  ReactDOM.render(
+      <Provider store={store}>
+        <Root />
+      </Provider>,
+      document.getElementById("root")
+  );
 });
