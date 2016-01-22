@@ -1,3 +1,3 @@
 Meteor.publish("tasks", function () {
-  return Tasks.find();
+  return TaskModel.find();
 });

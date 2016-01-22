@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-import increaseAction from './../actions/taskActions';
+//import increaseAction from './../actions/taskActions';
 
 class Counter extends React.Component {
   render () {

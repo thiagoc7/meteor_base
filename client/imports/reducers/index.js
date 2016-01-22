@@ -1,10 +1,9 @@
-// Reducer
-export function counter (state = {count: 0}, action) {
-  let count = state.count
-  switch (action.type) {
-    case 'increase':
-      return {count: count + 1}
-    default:
-      return state
-  }
-}
+import { combineReducers } from 'redux';
+
+import { hideCompleted } from './taskReducer';
+
+const tasksApp = combineReducers({
+  hideCompleted
+});
+
+export default tasksApp

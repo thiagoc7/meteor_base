@@ -1,13 +1,18 @@
-Tasks = new Mongo.Collection('tasks');
-Task = Astro.Class.create({
-  name: 'Task',
-  collection: Tasks,
+TasksModel = new Mongo.Collection('tasks');
+TaskModel = Astro.Class.create({
+  name: 'TaskModel',
+  collection: TasksModel,
   fields:{
     text: {
       type: String
     },
     checked: {
-      type: Boolean
+      type: Boolean,
+      default: false
+    },
+    createdAt: {
+      type: Date,
+      default: () => new Date()
     }
   }
 });

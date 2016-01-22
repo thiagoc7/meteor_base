@@ -1,11 +1,13 @@
 import React from 'react'
 
-import App from './containers/Counter.jsx'
+import Header from './containers/Header.jsx'
+import Tasks from './containers/Tasks.jsx'
 
 const Root = () => {
   return (
-      <div>
-        <App />
+      <div className="container">
+        <Header />
+        <Tasks />
       </div>
   );
 };

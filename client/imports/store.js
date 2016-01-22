@@ -1,7 +1,9 @@
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
+import thunkMiddleware from 'redux-thunk'
 
-import {counter} from './reducers/index'
+import tasksApp from './reducers/index'
 
-let store = createStore(counter);
+const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
+let store = createStoreWithMiddleware(tasksApp);
 
 export default store;

@@ -1,12 +1,9 @@
 
-const initialTasks = [
-  { _id: 1, text: "This is task 1" },
-  { _id: 2, text: "This is task 2" },
-  { _id: 3, text: "This is task 3" }
-];
-
-export const tasks = (state = initialTasks, action) => {
+export function hideCompleted(state = true, action) {
   switch (action.type) {
+    case 'TOGGLE_HIDE_COMPLETED':
+      return !state;
+
     default:
       return state;
   }
