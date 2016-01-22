@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 
-import { hideCompleted } from './taskReducer';
+import { hideCompleted, meteorData } from './taskReducer';
 
 const tasksApp = combineReducers({
-  hideCompleted
+  hideCompleted,
+  meteorData
 });
 
 export default tasksApp

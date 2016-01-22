@@ -21,3 +21,10 @@ export function toggleHideCompleted() {
     type: 'TOGGLE_HIDE_COMPLETED'
   }
 };
+
+export function setMeteorData(data) {
+  return {
+    type: 'METEOR_DATA',
+    data: data
+  }
+}
