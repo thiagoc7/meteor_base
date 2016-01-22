@@ -37,5 +37,4 @@ git push
 # set remote git
 git remote add dokku dokku@droplet_ip:met_deploy
 git push dokku master
-
 ```
