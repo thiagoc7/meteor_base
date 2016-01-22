@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactMixin from 'react-mixin';
 import { connect } from 'react-redux';
 
-import { toggleHideCompleted } from './../actions/taskActions'
+import { addTask, toggleHideCompleted } from './../actions/taskActions'
 import HeaderForm from './HeaderForm.jsx'
 
 export default class Header extends Component {
@@ -14,6 +14,8 @@ export default class Header extends Component {
   }
 
   render() {
+    const { dispatch } = this.props;
+
     return (
         <header>
 
@@ -24,11 +26,11 @@ export default class Header extends Component {
                 type="checkbox"
                 readOnly={true}
                 checked={this.props.hideCompleted}
-                onClick={() => this.props.dispatch(toggleHideCompleted())} />
+                onClick={() => dispatch(toggleHideCompleted())} />
             Hide Completed Tasks
           </label>
 
-          <HeaderForm />
+          <HeaderForm onAddTask={text => dispatch(addTask(text))} />
 
         </header>
     )
@@ -42,7 +44,7 @@ Header.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    hideCompleted: state.hideCompleted
+    hideCompleted: state.hideCompleted,
   }
 }
 

@@ -1,14 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { addTask } from './../actions/taskActions'
-
 class HeaderForm extends Component {
 
   onSubmit(e) {
     e.preventDefault();
     let input = this.refs.textInput;
-    this.props.dispatch(addTask(input.value));
+    this.props.onAddTask(input.value);
     input.value = "";
   }
 
@@ -25,7 +23,7 @@ class HeaderForm extends Component {
 }
 
 HeaderForm.propTypes = {
-  dispatch: PropTypes.func.isRequired
+  onAddTask: PropTypes.func.isRequired
 };
 
-export default connect()(HeaderForm)
+export default HeaderForm;

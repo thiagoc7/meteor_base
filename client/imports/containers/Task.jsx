@@ -1,38 +1,24 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-
-import { toggleChecked, deleteTask } from './../actions/taskActions';
 
 class Task extends Component {
 
-  toggleChecked() {
-    this.props.dispatch(
-        toggleChecked(this.props.task)
-    )
-  }
-
-  deleteThisTask() {
-    this.props.dispatch(
-        deleteTask(this.props.task)
-    )
-  }
-
   render() {
-    const taskClassName = this.props.task.checked ? "checked" : "";
+    const { task, onToggleChecked, onDeleteThisTask } = this.props;
+    const taskClassName = task.checked ? "checked" : "";
 
     return (
         <li className={taskClassName}>
-          <button className="delete" onClick={this.deleteThisTask.bind(this)}>
+          <button className="delete" onClick={() => onDeleteThisTask(task)}>
             &times;
           </button>
 
           <input
               type="checkbox"
               readOnly={true}
-              checked={this.props.task.checked}
-              onClick={this.toggleChecked.bind(this)} />
+              checked={task.checked}
+              onClick={() => onToggleChecked(task)} />
 
-          <span className="text">{this.props.task.text}</span>
+          <span className="text">{task.text}</span>
         </li>
     );
   }
@@ -40,7 +26,8 @@ class Task extends Component {
 
 Task.propTypes = {
   task: PropTypes.object.isRequired,
-  dispatch: PropTypes.func.isRequired
+  onToggleChecked: PropTypes.func.isRequired,
+  onDeleteThisTask: PropTypes.func.isRequired
 };
 
-export default connect()(Task)
+export default Task;
