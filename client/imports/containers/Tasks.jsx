@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { toggleChecked, deleteTask } from './../actions/taskActions';
+import { injectMeteorData } from './../MeteorDecorator.jsx'
 import Task from './Task.jsx'
 
 class TasksContainer extends Component {
@@ -32,6 +33,20 @@ TasksContainer.propTypes = {
   tasks: PropTypes.array.isRequired,
   tasksReady: PropTypes.bool.isRequired
 };
+
+function getMeteorData(state) {
+  let query = {};
+  if (state.hideCompleted) {
+    query = {checked: {$ne: true}}
+  }
+
+  return {
+    subscription: Meteor.subscribe('tasks'),
+    query: TaskModel.find(query, {sort: {createdAt: -1}})
+  }
+}
+
+TasksContainer = injectMeteorData(getMeteorData)(TasksContainer);
 
 function mapStateToProps (state) {
   return {

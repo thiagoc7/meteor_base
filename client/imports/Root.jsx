@@ -9,7 +9,6 @@ const Root = () => {
       <div className="container">
         <Header />
         <Tasks />
-        <MeteorData />
       </div>
   );
 };

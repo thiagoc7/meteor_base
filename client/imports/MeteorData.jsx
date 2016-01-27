@@ -15,8 +15,8 @@ class MeteorData extends Component {
     const taskSub = Meteor.subscribe('tasks');
 
     let result = {
-      tasksReady: taskSub.ready(),
-      tasks: TaskModel.find(query, {sort: {createdAt: -1}}).fetch() || [],
+      //tasksReady: taskSub.ready(),
+      //tasks: TaskModel.find(query, {sort: {createdAt: -1}}).fetch() || [],
       incompleteCount: TasksModel.find({checked: {$ne: true}}).count()
     };
 
